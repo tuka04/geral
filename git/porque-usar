@@ -1,0 +1,17 @@
+0. O que é um SCV (Sistema de Controle de Versão)?
+R:. É um sistema que registra as mudanças feitas em um arquivo ou um conjunto de arquivos ao longo do tempo
+de forma que você possa recuperar uma versão. É possível utilizar, praticamente, com qualquer tipo de arquivo (jpeg, doc, xls, html...).
+
+1. Por que usar?
+R:. Quando temos mais de uma programador trabalhando em um mesmo projeto corremos alguns riscos:
+   a) Uma pessoa sobreescrever o código de outra.
+   b) Não saber o que foi alterado e por quem.
+   c) A cada atualização é necessário avisar a todos os membros da equipe.
+
+2. Qual a importância?
+R:. a) Compartilhamento de documentos e versionamento dos mesmos.
+    b) Permiti trabalho em paralelo e controlar modificações.
+    c) Facilita a manutenção e gerência de qualidade.
+    d) Possibilita trabalhar em equipe, e futuramente, agregar mais pessoas a equipe.
+
+

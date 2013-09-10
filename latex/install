@@ -1,0 +1,1 @@
+$ sudo yum install texlive-doc.i686 texlive-texmf-afm.noarch texlive-texmf-latex.noarch texlive-texmf-errata-fonts.noarch texlive-utils.i686 texlive.i686 texlive-afm.i686 texlive-latex.i686

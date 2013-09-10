@@ -1,0 +1,41 @@
+Domain=[CPO1] OS=[Windows Server 2008 R2 Enterprise 7601 Service Pack 1] Server=[Windows Server 2008 R2 Enterprise 6.1]
+
+	Sharename       Type      Comment
+	---------       ----      -------
+	acervo_dt       Disk      
+	ADMIN           Disk      Administracao remota
+	area_transf     Disk      
+	arquitetura     Disk      
+	arquivo_morto   Disk      
+	BKPPiniweb      Disk      
+	C$              Disk      Recurso compartilhado padrao
+	do              Disk      
+	dt              Disk      
+	E$              Disk      Recurso compartilhado padrao
+	estagiarios     Disk      
+	G               Disk      
+	G$              Disk      Recurso compartilhado padrao
+	H$              Disk      Recurso compartilhado padrao
+	htdocs          Disk      
+	informatica     Disk      
+	IPC$            IPC       IPC remoto
+	logs            Disk      
+	logs2           Disk      
+	Luciana         Disk      
+	NETLOGON        Disk      Compartilhamento do servidor de logon 
+	ngpo            Disk      
+	planejamento    Disk      
+	planes          Disk      
+	print$          Disk      Drivers de impressora
+	ProgramData     Disk      
+	RH              Disk      
+	S$              Disk      Recurso compartilhado padrao
+	scanstate       Disk      
+	secretaria      Disk      
+	SQLExpress      Disk      
+	SYSVOL          Disk      Compartilhamento do servidor de logon 
+	temp            Disk      
+	Users           Disk      
+Connection to 143.106.193.3 failed (Error NT_STATUS_CONNECTION_REFUSED)
+NetBIOS over TCP disabled -- no workgroup available
+

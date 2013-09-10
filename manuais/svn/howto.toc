@@ -1,0 +1,5 @@
+\select@language {brazil}
+\contentsline {section}{\numberline {1}Pr\IeC {\'e}-requisitos}{2}{section.1}
+\contentsline {section}{\numberline {2}Instala\IeC {\c c}\IeC {\~a}o}{2}{section.2}
+\contentsline {section}{\numberline {3}Criar projeto}{2}{section.3}
+\contentsline {section}{\numberline {4}Integra\IeC {\c c}\IeC {\~a}o com Apache}{3}{section.4}

@@ -1,0 +1,99 @@
+1) Instalar Kerberos
+$ krb5
+ 	Após intalação
+ 	a) Configuração:
+	$ sudo nano /etc/krb5.conf 
+		[logging]
+			 default = FILE:/var/log/krb5libs.log
+			 kdc = FILE:/var/log/krb5kdc.log
+			 admin_server = FILE:/var/log/kadmind.log
+		[libdefaults]
+			 default_realm = CPO.UNICAMP.BR
+			 dns_lookup_realm = false
+			 dns_lookup_kdc = false
+			 ticket_lifetime = 24h
+			 renew_lifetime = 7d
+			 forwardable = true
+			 clockskew = 300	
+			 kdc_timesync = 1
+
+		[realms]
+			 CPO.UNICAMP.BR = {
+			  kdc = 143.106.193.3
+			  admin_server = 143.106.193.3
+			  kdc = 143.106.193.3
+			 }
+
+		[domain_realm]
+			 .cpo.unicamp.br = CPO.UNICAMP.BR
+			 cpo.unicamp.br = CPO.UNICAMP.BR
+	b) Instalar sudo yum install krb5-pkinit.x86_64 kstart.x86_64 krb5-workstation
+	c) Testar:
+	$ kinit administrator (primeiro utilizar uma senha incorreta, depois a correta)
+2) Instalar openldap & cups 
+$ sudo yum install openldap.x86_64 openldap-clients.x86_64  pam_ldap.x86_64 smbldap-tools.noarch
+3) Instalar samba
+$ sudo yum install samba-winbind.x86_64 samba-client.x86_64 samba-common.x86_64 samba-winbind-clients.x86_64 samba-winbind-krb5-locator.x86_64
+	a) Configuração 1:.
+	$ sudo nano /etc/nsswitch.conf 
+	Alterar as linhas
+		passwd:     files ldap winbind
+		shadow:     files ldap winbind
+		group:      files ldap winbind
+		hosts:      files dns
+
+	b) Configuração 2:.
+	$ sudo nano /etc/samba/smb.cfg
+		[global]
+			netbios name = CPO75
+			unix charset = LOCALE
+			workgroup = CPO1
+			realm = CPO.UNICAMP.BR
+			server string = "Samba 3.0.21a w/ ADS Support"
+			security = ADS
+			password server = 143.106.193.3
+			log level = 5
+			log file = /var/log/samba/LOG.%m
+			max log size = 1024
+			socket options = TCP_NODELAY SO_RCVBUF=8192 SO_SNDBUF=8192
+			printcap name = cups
+			disable spoolss = Yes
+			show add printer wizard = No
+			dns proxy = No
+			wins server = 143.106.193.3
+			ldap ssl = no
+			idmap uid = 10000-20000
+			idmap gid = 10000-20000
+			template shell = /bin/bash
+			winbind enum users = Yes
+			winbind enum groups = Yes
+			winbind use default domain = Yes
+
+		[temp]
+			comment = Diretorio Temporario
+			path = /tmp
+			read only = No
+			cups options = raw
+	c) Testar configurações
+	$ testparm
+	d) Gerar configurações extrar (/etc/resolv.conf)
+	$ sudo authconfig --updateall --enablewinbind --enablewinbindauth --enablewinbindusedefaultdomain
+	e) Iniciar servicoes
+	$ smbd -D
+	$ nmbd -D
+	$ winbindd -D
+
+
+
+4) Trabalhando em rede
+$ sudo net ads join -U administrator
+$ sudo smbclient -L 143.106.193.3
+$ sudo smbclient -L arquiteto
+
+5) Montando ad no linux
+$ mkdir -p /mnt/area_transf
+$ sudo mount -t cifs -o rw,noperm,user=<USUARIO>,password=<SENHA> //arquiteto/area_transf /mnt/area_transf
+(para testar) 
+$ ls -l /mnt/area_transf
+
+

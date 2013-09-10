@@ -1,0 +1,191 @@
+This is makeindex, version 2.14 [02-Oct-2002] (kpathsea + Thai support).
+Scanning input file repositorio.tex...
+!! Input index error (file = repositorio.tex, line = 1):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 2):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 3):
+   -- Unknown index keyword \documentclass[a4paper,10pt].
+!! Input index error (file = repositorio.tex, line = 4):
+   -- Unknown index keyword \usepackage[brazil].
+!! Input index error (file = repositorio.tex, line = 5):
+   -- Unknown index keyword \usepackage[utf8].
+!! Input index error (file = repositorio.tex, line = 6):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 7):
+   -- Unknown index keyword %\usepackage[latin1].
+!! Input index error (file = repositorio.tex, line = 8):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = repositorio.tex, line = 9):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 10):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = repositorio.tex, line = 11):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = repositorio.tex, line = 12):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 14):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 15):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 16):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = repositorio.tex, line = 17):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = repositorio.tex, line = 18):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = repositorio.tex, line = 19):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = repositorio.tex, line = 20):
+   -- Unknown index keyword \hypersetup.
+!! Input index error (file = repositorio.tex, line = 21):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 22):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 23):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 24):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 25):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 26):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 27):
+   -- Unknown index keyword \lstset.
+!! Input index error (file = repositorio.tex, line = 28):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 29):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 30):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 31):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 32):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 33):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 34):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 36):
+   -- Unknown index keyword \renewcommand*\thelstnumber.
+!! Input index error (file = repositorio.tex, line = 38):
+   -- Unknown index keyword \DeclareCaptionFormat.
+!! Input index error (file = repositorio.tex, line = 39):
+   -- Unknown index keyword \captionsetup[lstlisting].
+!! Input index error (file = repositorio.tex, line = 40):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 41):
+   -- Unknown index keyword \title.
+!! Input index error (file = repositorio.tex, line = 42):
+   -- Unknown index keyword \author.
+!! Input index error (file = repositorio.tex, line = 43):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 44):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 45):
+   -- Unknown index keyword \begin.
+!! Input index error (file = repositorio.tex, line = 46):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 47):
+   -- Unknown index keyword \begin.
+!! Input index error (file = repositorio.tex, line = 48):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 49):
+   -- Unknown index keyword \includegraphics[scale=0.5].
+!! Input index error (file = repositorio.tex, line = 50):
+   -- Unknown index keyword \end.
+!! Input index error (file = repositorio.tex, line = 51):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 52):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 53):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 54):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 55):
+   -- Unknown index keyword \section.
+!! Input index error (file = repositorio.tex, line = 56):
+   -- Unknown index keyword EsseguiatemcomobaseacriaçãodeumrepositórioparaoSigPodporém,serviráparaqualquerprojetoweb.AmáquinadetestefoiaEngenheiro\footnote.
+!! Input index error (file = repositorio.tex, line = 57):
+   -- Unknown index keyword \section.
+!! Input index error (file = repositorio.tex, line = 58):
+   -- Unknown index keyword Atençãonesteexemploiremosnomearorepositórioasercriadocomo\textbf.
+!! Input index error (file = repositorio.tex, line = 59):
+   -- Unknown index keyword \subsection.
+!! Input index error (file = repositorio.tex, line = 60):
+   -- Unknown index keyword AbraoDOS\footnote.
+!! Input index error (file = repositorio.tex, line = 61):
+   -- Unknown index keyword \begin.
+!! Input index error (file = repositorio.tex, line = 62):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 63):
+   -- Unknown index keyword \end.
+!! Input index error (file = repositorio.tex, line = 64):
+   -- Unknown index keyword \subsection.
+!! Input index error (file = repositorio.tex, line = 65):
+   -- Unknown index keyword Parabaixarorepositóriocriadoacima,utilizeumclientedoSubversion\footnote.
+!! Input index error (file = repositorio.tex, line = 66):
+   -- Unknown index keyword Primeirocrieumanovapasta,chamada\textbf.
+!! Input index error (file = repositorio.tex, line = 67):
+   -- Unknown index keyword \begin.
+!! Input index error (file = repositorio.tex, line = 68):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 69):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 70):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 71):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 72):
+   -- Unknown index keyword \end.
+!! Input index error (file = repositorio.tex, line = 73):
+   -- Unknown index keyword \section.
+!! Input index error (file = repositorio.tex, line = 74):
+   -- Unknown index keyword Paracriargatilhoscomo,porexemplo,enviarautomaticamenteumemailcomamensagemdeumcommit,devemosnosatentarapasta\textbf.
+!! Input index error (file = repositorio.tex, line = 75):
+   -- Unknown index keyword AtravésdoWindowsExplorer(oualgumnavegadordepastasdosistemaoperacional),váatéapasta\textbf.
+!! Input index error (file = repositorio.tex, line = 76):
+   -- Unknown index keyword Napasta\textbf.
+!! Input index error (file = repositorio.tex, line = 77):
+   -- Unknown index keyword \begin.
+!! Input index error (file = repositorio.tex, line = 78):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 79):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 80):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 81):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 82):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 83):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 84):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 85):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 86):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 87):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 88):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 89):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 90):
+   -- Unknown index keyword \end.
+!! Input index error (file = repositorio.tex, line = 91):
+   -- Unknown index keyword Noteque,háoexecutavel\textbf.
+!! Input index error (file = repositorio.tex, line = 92):
+   -- Unknown index keyword Devemos,também,criaroarquivo\textbf.
+!! Input index error (file = repositorio.tex, line = 93):
+   -- Unknown index keyword \begin.
+!! Input index error (file = repositorio.tex, line = 94):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = repositorio.tex, line = 95):
+   -- Unknown index keyword \end.
+!! Input index error (file = repositorio.tex, line = 96):
+   -- Unknown index keyword \end.
+done (0 entries accepted, 93 rejected).
+Nothing written in repositorio.ind.
+Transcript written in repositorio.ilg.

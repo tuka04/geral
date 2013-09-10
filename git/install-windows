@@ -1,0 +1,28 @@
+## Instalação e configuração no Windows ##
+Instalar o Git no Windows é muito fácil. O projeto msysgit tem um dos procedimentos mais simples de instalação. 
+Simplesmente baixe o arquivo exe do instalador a partir da página do GitHub e execute-o: http://msysgit.github.com
+
+1)Execute o instalador do Git e na tela que se abre, clique em avançar até chegar na etapa seguinte.
+
+2)Na tela de seleção dos componentes "Select Components", marque a opção "Context menu entries". Feito isso, avance para próxima tela.
+
+3)Na tela seguinte, deixe o caminho padrão. Avance.
+
+4)Nesta tela deixe marcado a opção "Use Git Bash only" e prossiga com a configuração.
+
+5)Deixe marcada a primeira opção(Checkout Windows style, commit Unix style line endings) indicando que queremos que as quebras de linha 
+sejam consideradas da mesma maneira, independente do sistema operacional.
+
+6) Após concluir a instalação, você terá tanto uma versão command line (linha de comando, incluindo um cliente SSH que será útil depois).
+
+## Configurando o Git ##
+Após o término da instalação, abra o aplicativo Git Bash;
+Execute os comandos a seguir para associarmos o seu usuário com as operações do Git:
+$ git config --global user.name "Seu Nome e Sobrenome"
+$ git config --global user.email "seu_email@dominio.com"
+Nota: se você possui uma conta no Github/Bitbucket, utilize este mesmo endereço de e-mail.
+
+
+
+
+

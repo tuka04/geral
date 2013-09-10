@@ -1,0 +1,185 @@
+This is makeindex, version 2.14 [02-Oct-2002] (kpathsea + Thai support).
+Scanning input file howto.tex...
+!! Input index error (file = howto.tex, line = 1):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 2):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 3):
+   -- Unknown index keyword \documentclass[a4paper,10pt].
+!! Input index error (file = howto.tex, line = 4):
+   -- Unknown index keyword \usepackage[brazil].
+!! Input index error (file = howto.tex, line = 5):
+   -- Unknown index keyword \usepackage[utf8].
+!! Input index error (file = howto.tex, line = 6):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 7):
+   -- Unknown index keyword %\usepackage[latin1].
+!! Input index error (file = howto.tex, line = 8):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = howto.tex, line = 9):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 10):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = howto.tex, line = 11):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = howto.tex, line = 12):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 14):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 15):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 16):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = howto.tex, line = 17):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = howto.tex, line = 18):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = howto.tex, line = 19):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = howto.tex, line = 20):
+   -- Unknown index keyword \hypersetup.
+!! Input index error (file = howto.tex, line = 21):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 22):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 23):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 24):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 25):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 26):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 28):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 29):
+   -- Unknown index keyword \title.
+!! Input index error (file = howto.tex, line = 30):
+   -- Unknown index keyword \author.
+!! Input index error (file = howto.tex, line = 31):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 32):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 33):
+   -- Unknown index keyword \begin.
+!! Input index error (file = howto.tex, line = 34):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 35):
+   -- Unknown index keyword \begin.
+!! Input index error (file = howto.tex, line = 36):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 37):
+   -- Unknown index keyword \includegraphics[scale=0.5].
+!! Input index error (file = howto.tex, line = 38):
+   -- Unknown index keyword \end.
+!! Input index error (file = howto.tex, line = 39):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 40):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 41):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 42):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 43):
+   -- Unknown index keyword \section.
+!! Input index error (file = howto.tex, line = 44):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 45):
+   -- Unknown index keyword \section.
+!! Input index error (file = howto.tex, line = 46):
+   -- Unknown index keyword \begin.
+!! Input index error (file = howto.tex, line = 47):
+   -- Unknown index keyword \item\label.
+!! Input index error (file = howto.tex, line = 48):
+   -- Unknown index keyword \item\label.
+!! Input index error (file = howto.tex, line = 49):
+   -- Unknown index keyword \item\label.
+!! Input index error (file = howto.tex, line = 50):
+   -- Unknown index keyword \subitem\label.
+!! Input index error (file = howto.tex, line = 51):
+   -- Unknown index keyword \subitem\emph.
+!! Input index error (file = howto.tex, line = 52):
+   -- Unknown index keyword \end.
+!! Input index error (file = howto.tex, line = 53):
+   -- Unknown index keyword \section.
+!! Input index error (file = howto.tex, line = 54):
+   -- Unknown index keyword Agoravamoscriarumprojetodentrodapastacriadanoitem[\ref.
+!! Input index error (file = howto.tex, line = 55):
+   -- Unknown index keyword Primeiroabraoconsoledo\emph.
+!! Input index error (file = howto.tex, line = 56):
+   -- Unknown index keyword Paracriarumprojetodigite\textbf.
+!! Input index error (file = howto.tex, line = 57):
+   -- Unknown index keyword \section.
+!! Input index error (file = howto.tex, line = 58):
+   -- Unknown index keyword NaveguenaspastasatéainstalaçãodoApache2[\ref.
+!! Input index error (file = howto.tex, line = 59):
+   -- Unknown index keyword \begin.
+!! Input index error (file = howto.tex, line = 60):
+   -- Unknown index keyword \item\textbf.
+!! Input index error (file = howto.tex, line = 61):
+   -- Unknown index keyword \begin.
+!! Input index error (file = howto.tex, line = 62):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 63):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 64):
+   -- Unknown index keyword \end.
+!! Input index error (file = howto.tex, line = 65):
+   -- Unknown index keyword \item\textbf.
+!! Input index error (file = howto.tex, line = 66):
+   -- Unknown index keyword \begin.
+!! Input index error (file = howto.tex, line = 67):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 68):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 69):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 70):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 71):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 72):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 73):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 74):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 75):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 76):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 77):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 78):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 79):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 80):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 81):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 82):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 83):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 84):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 85):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 86):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 87):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 88):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 89):
+   -- Unknown index keyword \end.
+!! Input index error (file = howto.tex, line = 90):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = howto.tex, line = 91):
+   -- Unknown index keyword \end.
+!! Input index error (file = howto.tex, line = 92):
+   -- Unknown index keyword \end.
+done (0 entries accepted, 90 rejected).
+Nothing written in howto.ind.
+Transcript written in howto.ilg.

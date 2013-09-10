@@ -1,0 +1,17 @@
+1) Checkout/Clone
+R:. Primeiro comando a ser executado. Esse baixa o projeto para a sua máquina local.
+$ git checkout http://endereco-do-projeto
+OU 
+$ git clone --mirror ssh://endereco-do-projeto
+
+2) Update
+R:. Comando muito importante. Para manter seus arquivos atualizados, sempre antes de modificar algum arquivo, faça o update do seu Workbench.
+$ git remote update
+
+3) Commit
+R:. Após modificar e testar os arquivos desejados, fazer o commit dos mesmo
+$ git commit -a -m "mensagem de commit"
+
+4) Add
+R:. Necessário adicionar novos arquivos criados no projeto. Lembrando que após um add é necessário dar commit.
+$ git add arquivo1 arquivo2 ... arquivoN

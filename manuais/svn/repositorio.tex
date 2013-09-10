@@ -1,0 +1,130 @@
+% Manual de Instalação e Configuração Subversion
+%*************************************************
+\documentclass[a4paper,10pt]{article}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+%codigo
+%\usepackage[latin1]{inputenc}
+\usepackage{amsthm,amsfonts,amsmath,amssymb}
+%img
+\usepackage{graphicx}
+\usepackage{subfig}
+%tabela
+
+%fim
+%fim
+\usepackage{makeidx}
+\usepackage{listings}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks,
+  linkcolor=blue,
+  filecolor=blue,
+  urlcolor=blue,
+  citecolor=blue
+}
+\lstset{
+basicstyle=\small\ttfamily,
+numbers=left,
+numbersep=5pt,
+xleftmargin=10pt,
+frame=tb,
+framexleftmargin=10pt
+}
+
+\renewcommand*\thelstnumber{\arabic{lstnumber}:}
+
+\DeclareCaptionFormat{mylst}{\hrule#1#2#3}
+\captionsetup[lstlisting]{format=mylst,labelfont=bf,singlelinecheck=off,labelsep=space}
+%titulo
+\title{Criar/Gerenciar um repositório [Para o SigPod]}
+\author{Leandro Kümmel Tria Mendes}
+\makeindex
+%inicio
+\begin{document}
+\maketitle
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[scale=0.5]{logo.png}
+\end{figure}
+\newpage
+\tableofcontents
+\section{Introdução}
+Esse guia tem como base a criação de um repositório para o SigPod porém, servirá para qualquer projeto web. A máquina de teste foi a Engenheiro\footnote{\url{engenheiro.cpo.unicamp.br}}. Caso tenha dúvidas sobre a instalação do Subverion consulte o manual instalacao.pdf\footnote{Esse manual encontra-se na pasta ./manuais/svn/instalacao.pdf} (a pasta do repositório padrão é C:/SVN/).
+\section{Criar Repositório}
+Atenção neste exemplo iremos nomear o repositório a ser criado como \textbf{sigpod}. Portanto, caso queira criar um repositório com outro nome, substitua \textbf{sigpod} pelo nome desejado.
+\subsection{Novo repositório} \label{itm:novorepo}
+Abra o DOS\footnote{Menu iniciar, Executar e digite cmd} do Windows e digite o seguinte comando:
+\begin{lstlisting}[caption={Criar repositório}]
+  svnadmin create  C:/SVN/sigpod
+\end{lstlisting}
+\subsection{Baixar repositório} \label{itm:corepo}
+Para baixar o repositório criado acima, utilize um cliente do Subversion\footnote{Por ex: TortoiseSVN}, ou, como no exemplo utilizaremos a linha de comando porém, os caminhos (como o do repositório acima) são os mesmos.\\
+Primeiro crie uma nova pasta, chamada \textbf{\_admin}, em \textbf{S:/Apache/htdocs/}\footnote{Resultado: S:/Apache/htdocs/\_admin/}.\\Abra o DOS do Windows (ou bash do Linux) e digite os dois comandos abaixo:
+\begin{lstlisting}[caption={processo de checkout}]
+  cd S:/Apache/htdocs/_admin
+  C:/Subversion/bin/svn.exe checkout 
+--username=SEU_USUARIO --password=SUA_SENHA 
+http://engenheiro/svn/sigpod
+\end{lstlisting}
+\section{Gatilhos}
+Para criar gatilhos como, por exemplo, enviar automaticamente um email com a mensagem de um commit, devemos nos atentar a pasta \textbf{hooks} do nosso repositório criado em [\ref{itm:novorepo}].
+Através do WindowsExplorer (ou algum navegador de pastas do sistema operacional), vá até a pasta \textbf{C:/SVN/sigpod/hooks/}. Esta, contêm arquivos que são invocados após algumas ações serem tomadas, tal como, um commit.\\ Para nosso exemplo, iremos implementar uma chamada toda vez em que for feito um commit no repositório. Essa chamada irá enviar um email e atualizará o ambiente de testes criado em [\ref{itm:corepo}].\\
+Na pasta \textbf{C:/SVN/sigpod/hooks/} crie um arquivo chamado \textbf{post-commit.bat} nele inclua as linhas abaixo:
+\begin{lstlisting}[caption={algoritmo pós commit}]
+  SET REPOS=%1
+  SET REV=%2
+  for /f "delims=" %%a in ('C:\Subversion\bin\svnlook.exe 
+changed -r %REV% %REPOS%') do @set CHANGES=%%a
+  for /f "delims=" %%b in ('C:\Subversion\bin\svnlook.exe 
+propget --revprop -r %REV% %REPOS% svn:log') do @set MSG=%%b
+  for /f "delims=" %%c in ('C:\Subversion\bin\svnlook.exe 
+author -r %REV% %REPOS%') do @set AUTOR=%%c
+  C:\Subversion\bin\svn.exe --username=administrador 
+--password=18RxMr31 update S:\htdocs\_admin
+  C:\SVN\runjob.exe S:\php\php.exe C:\SVN\sigpod\hooks\mail\post-commit-mail.php 
+"%REPOS%" "%REV%" "%MSG%" "%CHANGES%" "%AUTOR%"
+\end{lstlisting}
+Note que, há o executavel \textbf{runjob.exe}\footnote{Esse executavel esta localizado em C:/SVN/ não deleta-lo!} que é responsável por criar um processo paralelo ao criado pelo post-commit.bat, ou seja, o post-commit.bat irá reponder sucesso para o usuário responsável pelo commit e, paralelamente, irá executar os comandos do arquivo batch.\\
+Devemos, também, criar o arquivo \textbf{post-commit-mail.php}. Para isso, primeiramente, criamos uma pasta, denominada \textbf{mail} e localizada em \textbf{C:/SVN/sigpod/hooks/}. Após, criamos o arquivo post-commit-mail.php dentro dessa pasta. O conteúdo desse arquivo é citado abaixo:
+\begin{lstlisting}[caption={Algoritmo de envio de email}]
+  <?php
+  // Inclui o arquivo class.phpmailer.php localizado na pasta phpmailer
+  require("class.phpmailer.php");
+  $mail = new PHPMailer();
+  $mail->Charset = 'UTF-8';
+  $mail->From = 'noreply.cpo@gmail.com';
+  $mail->FromName = '[CPO]: SVN SigPod';
+  
+  // Setando o conteudo
+  $mail->IsHTML(true);
+  $mail->Subject = 'Commmit';
+  $msg = "Realizado por: ".$argv[5]."<br>";
+  $msg .= "Repositório: ".$argv[1]."<br>";
+  $msg .= "Versão: ".$argv[2]."<br>";
+  $msg .= "Mensagem: ".$argv[3]."<br>";
+  $msg .= "Arquivos: ".$argv[4]."<br>";
+  $msg .= '<b>Não esqueça de dar update!!!</b>';
+  $mail->Body     = $msg;
+  
+  // Validando a autenticação
+  $mail->IsSMTP();
+  $mail->SMTPAuth = true;
+  $mail->Host     = "ssl://smtp.googlemail.com";
+  $mail->Port     = 465;
+  $mail->Username = 'noreply.cpo@gmail.com';
+  $mail->Password = '18svnmail31';
+  // Setando o endereço de recebimento
+  $mail->AddAddress('leandro.kummel@gmail.com', 'Leandro K. T. Mendes');
+  $mail->AddAddress('fscarelli@gmail.com', 'Flavio Scarelli');
+  $mail->AddAddress('and7_oliveira@hotmail.com', 'Anderson Oliveira');
+  // Enviando o e-mail
+  if( $mail->Send() )
+    echo 'E-mail enviado com sucesso';
+  else
+    echo 'Erro ao enviar e-mail';
+  
+  ?>
+\end{lstlisting}
+\end{document}

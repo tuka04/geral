@@ -1,0 +1,14 @@
+## Informações sobre GitHub ##
+
+0. O que é?
+R:. GitHub é um Sistema de Controle de Versão DISTRIBUIDO, SCVD
+
+1. Vantagens de um SCVD.
+R:. Os clientes não apenas fazem cópias das últimas versões dos arquivos: eles são cópias completas do repositório. 
+    Assim, se um servidor falha, qualquer um dos repositórios dos clientes pode ser copiado de volta para o servidor para restaurá-lo. 
+    Cada checkout (resgate) é na prática um backup completo de todos os dados.
+
+2. Fluxo de trabalho básico do GitHub
+R:. 1) Você modifica arquivos no seu diretório de trabalho
+    2) Você seleciona dos arquivos e faz commit, o que faz com o que os arquivos vá para área permanente no seu diretório GitHub.
+    3) Você publica os arquivos fazendo push do projeto.

@@ -1,0 +1,85 @@
+%*************************************************
+\documentclass[a4paper,10pt]{article}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+%codigo
+%\usepackage[latin1]{inputenc}
+\usepackage{amsthm,amsfonts,amsmath,amssymb}
+%img
+\usepackage{graphicx}
+\usepackage{subfig}
+%tabela
+
+%fim
+%fim
+\usepackage{listings}
+\usepackage{makeidx}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks,
+  linkcolor=blue,
+  filecolor=blue,
+  urlcolor=blue,
+  citecolor=blue
+}
+
+%titulo
+\title{Solicitação 003}
+\author{Leandro Kümmel Tria Mendes}
+\makeindex
+%inicio
+\begin{document}
+\maketitle
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[scale=0.5]{logo.png}
+\end{figure}
+\newpage
+\section{Introdução}
+Implementar mudanças no contratos, são elas:\\
+\textbf{Mudanças válidas apenas para Valor do Projeto, Valor de Mão-de-obra, Valor do Material, Prazo Contratual, Prazo de Conclusão Previsto Projeto/Obra}
+\begin{itemize}
+\item \label{itm:button_aditivar} \emph{Botão [Aditivo]}: Trocamos de lugar, agora aparece na coluna à esquerda abaixo do nome da cada campo (Valor do Projeto etc...). Também foi criado um novo campo \boxed{<input type="text" id="aditivar\_valor\_moeda" mask="true">} o qual recebe uma
+máscara, para valores monetários (jquery) arquivo scripts/plugins/mascara.jquery.js. Para valores inteiros, ou seja, para o total de dias nada modificamos, apenas há um controle de qual input devemos deixar aparecendo, se o com máscara monetária, ou o simples que recebe os dias.\\
+Por último, foi solicitado que o campo \textbf{motivo} ficasse estático, com valor \textbf{outro}, podendo ser alterado.
+\item \label{itm:button_editar} \emph{Botão [Editar]}: O botão não aparecia nos aditivos monetários, o mesmo foi habilitado para os usuários.
+\item \label{itm:interface} \emph{Display dos dados}: No antigo display, os aditivos apareciam na seguinte configuração \boxed{30 (25,00 \%) (Motivo: atraso na obra) [Editar]}, um abaixo do outro. Foi alterado com a seguinte configuração \boxed{(+) 53 dias(10,60\%) [Editar]}, para ver mais sobre o mesmo basta um click em cima do aditivo.
+\item \label{itm:somas} \emph{Valor total e Data de conclusão}: Antes os valores não eram alterados, agora os mesmos são incrementados pelos aditivos. A Data de conclusão com os incrementos também foi atualizada na busca principal pelos contratos. Há um total de cada aditivo ao final das descrições de cada campo, que contém aditivo.
+\end{itemize}
+\textbf{Mudanças válidas apenas para Início Projeto/Obra}
+\begin{itemize}
+\item \label{itm:datepicker} \emph{Campo Início Projeto/Obra}: Foi implementado um datepicker do jquery.ui para esse campo.
+\end{itemize}
+\section{Arquivos alterados}
+Busque por \"Solicitacao 003\" ou apenas \"003\", para ver os comentários e os métodos/funções alterados.
+\begin{itemize}
+\item \emph{classes/BD.php}
+\item \emph{classes/Contrato.php} : (maioria das modificações já que controla o frontend(html))
+\item \emph{sgd.php}
+\item \emph{sgd\_busca.php}
+\item \emph{sgd\_module.php}
+\item \emph{includeAll.php}
+\item \emph{scripts/busca\_doc2.js}
+\item \emph{scripts/sgd\_contrato.js} 
+\item \emph{css/geral.css} 
+\end{itemize}
+\section{Arquivos novos}
+Sempre procure comentários nas interfaces primeiro, lembre-se que elas são um descritor dos métodos públicos da classe a qual implementa a(s) mesma(s).
+\begin{itemize}
+\item \emph{BD/DAO/interfaces/DAO.class.php} : DAO significa DataAcessObject, ou seja, acesso ao banco de dados, com ele queremos reunir métodos que agilizem e otimizem as querys.
+\item \emph{classes/contrato/Aditivo.class.php} 
+\item \emph{classes/contrato/interfaces/AditivoDAO\_IF.class.php} 
+\item \emph{classes/contrato/interfaces/AditivoIF.class.php} 
+\item \emph{classes/contrato/dao/AditivoDAO.class.php} 
+\item \emph{classes/frontend/html/} : Esse pacote foi criado para auxiliar na geração do código html. Importante notar que os métodos setNext() e setChildren() utilizam métodos de fila, ou seja, primeiro a entrar é o primeiro elemento da fila.
+\item \emph{classes/frontend/html/HtmlTable.class.php} 
+\item \emph{classes/frontend/html/HtmlTag.class.php} 
+\item \emph{classes/frontend/html/HtmlTagStyle.class.php} 
+\item \emph{classes/frontend/html/HtmlTagAttr.class.php} 
+\item \emph{classes/frontend/html/interfaces/HtmlTagIF.class.php} 
+\item \emph{classes/frontend/html/interfaces/HtmlTagStyleIF.class.php} 
+\item \emph{classes/frontend/html/interfaces/HtmlTagAttrIF.class.php} 
+\item \emph{script/plugins/mascaras.jquery.js} : Contém Masked Input plugin for jQuery e MaskMoney, mais o método \$.fn.mascara(tipo)
+\end{itemize}
+\end{document} 

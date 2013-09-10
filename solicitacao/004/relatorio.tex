@@ -1,0 +1,55 @@
+%*************************************************
+\documentclass[a4paper,10pt]{article}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+%codigo
+%\usepackage[latin1]{inputenc}
+\usepackage{amsthm,amsfonts,amsmath,amssymb}
+%img
+\usepackage{graphicx}
+\usepackage{subfig}
+%tabela
+
+%fim
+%fim
+\usepackage{listings}
+\usepackage{makeidx}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks,
+  linkcolor=blue,
+  filecolor=blue,
+  urlcolor=blue,
+  citecolor=blue
+}
+
+%titulo
+\title{Solicitação 004}
+\author{Leandro Kümmel Tria Mendes}
+\makeindex
+%inicio
+\begin{document}
+\maketitle
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[scale=0.5]{logo.png}
+\end{figure}
+\newpage
+\section{Introdução}
+Será implementado um alerta, apenas para um grupo de usuários, para os contratos quando estão próximos da data, aditivada, de conclusão prevista.
+\section{Requisitos}
+\subsection{Aviso}
+Aparecerá na página principal do SigPod \url{http://sg.cpo.unicamp.br/} um alerta, como se fosse um pop-up, chamado de \emph{jquery.ui-dialog}.
+\begin{itemize}
+\item \emph{Ativar}: Para ativar o \textbf{aviso}, de que falta \boxed{X} tempo (dias) para a validade do contrato. O controle da variável \boxed{X} será feito pelo painel de \emph{Administração}
+\url{http://sg.cpo.unicamp.br/adm.php}, o valor dessa valerá para todos os contratos.
+\item \emph{Desativar}: Quando um usuário pertencente ao grupo \boxed{U}, o qual o controle também é feito no painel de \emph{Administração}, desejar desabilitar o \textbf{aviso} a ação será
+propagada para todos os usuário pertencentes a \boxed{U}. Para desabilitar bastará clicar no botão \boxed{[Desabilitar]}.
+\end{itemize}
+\subsection{Extras}
+\begin{itemize}
+\item \emph{Destacar data}: Na tela em que os resultados da busca por um ou mais contratos são exibitos, destacar a data de conclusão prevista, para aqueles que estão próximos do vencimento.
+\item \emph{Habilitar busca por vencimento}:  Disponibilizar na tela de busca, para contratos, um botão que habilita a busca apenas por contratos próximos da data de conclusão ou já vencidos.
+\end{itemize}
+\end{document} 

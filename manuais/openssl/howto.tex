@@ -1,0 +1,100 @@
+% Manual de Instalação e Configuração Subversion
+%*************************************************
+\documentclass[a4paper,10pt]{article}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+%codigo
+%\usepackage[latin1]{inputenc}
+\usepackage{amsthm,amsfonts,amsmath,amssymb}
+%img
+\usepackage{graphicx}
+\usepackage{subfig}
+%tabela
+
+%fim
+%fim
+\usepackage{makeidx}
+\usepackage{listings}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks,
+  linkcolor=blue,
+  filecolor=blue,
+  urlcolor=blue,
+  citecolor=blue
+}
+
+%titulo
+\title{Manual de instalação e configuração OpenSSL [Windows]}
+\author{Leandro Kümmel Tria Mendes}
+\makeindex
+%inicio
+\begin{document}
+\maketitle
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[scale=0.5]{logo.png}
+\end{figure}
+\newpage
+\tableofcontents
+\listoffigures
+\listoftables
+\section{Pré-requisitos}
+Para a instalação e configuração do sistema que gera certificados digitais é necessária a instalação do OpenSSL\footnote{\url{http://slproweb.com/products/Win32OpenSSL.html}}. A máquina alvo deverá conter a última versão do Apache (versão > 2.2) \textbf{com módulo de ssl}\footnote{\url{http://ftp.unicamp.br/pub/apache//httpd/binaries/win32/httpd-2.2.25-win32-x86-openssl-0.9.8y.msi}} 
+\section{Instalação e Gerar Certificado}
+\begin{enumerate}[I]
+\item \label{itm:install} \textbf{Instalação}: A instalação do OpenSSL é básica, simples next-next-finish (NNF).\textbf{A instalação deverá, por padrão, ser realizada no diretório raiz C:/}. Após a instalação teremos a seguinte pasta: \textbf{C:/Openssl/}
+\item \label{itm:createcert} \textbf{Gerar certificado}: Para gerar um novo certificado devemos navegar até a pasta de instalação[\ref{itm:install}] e digitar os comando abaixo.
+ \begin{lstlisting}
+   # gerar arquivo com a chave privada.
+   openssl genrsa -aes256 -out privada.key 2048 
+   # gerar a chave publica.
+   openssl rsa -in privada.key -out publica.key 
+   # gerar o certificado digital utilizando a configuracao padrao do openssl.
+   openssl req -new -x509 -nodes -sha1 -key publica.key -out publica.crt -days 999 -config C:\Openssl\conf\openssl.cnf
+ \end{lstlisting}
+\item \label{itm:createService} \textbf{Serviço (daemon)}: Devemos criar um serviço no Windows para que o processo de start do Subversion seja automático toda vez que o servidor seja reiniciado, para isso faça o seguinte: 
+  \subitem \label{subitm:criarservice} \emph{I. Criar}: Abra o console do \emph{DOS} e digite o seguinte comando \textbf{sc create SVNservice binpath= [Pasta de instalação svn]/bin/svnserve.exe --service --root C:/SVN displayname="SubversionService" depend=tcpip}.
+  \subitem \emph{II. Iniciar/Parar}: Abra o gerenciador de serviços do Windows, para isso abra o executar e digite o comando \textbf{services.msc}. Localize o serviço que acabamos de criar [\ref{subitm:criarservice}], clique com o botão direito do mouse no mesmo, na caixa de diálogo clique em \textbf{propriedades} e altere o campo \textbf{Tipo de Inicialização} para \textbf{Automático}, clique no botão \textbf{Iniciar}, clique em \textbf{Aplicar} e em \textbf{OK}.
+\end{enumerate}
+\section{Criar projeto}
+Agora vamos criar um projeto dentro da pasta criada no item [\ref{itm:createRepo}]. 
+Primeiro abra o console do \emph{DOS} e navegue até o diretório onde foi instalado o Subversion [\ref{itm:install}] e entre na pasta \textbf{bin}.\\
+Para criar um projeto digite \textbf{svnadmin create C:/[\ref{itm:createRepo}]/[NOME-DO-PROJETO]}.
+\section{Integração com Apache}
+Navegue nas pastas até a instalação do Apache2 [\ref{itm:install}] e procure na pasta \textbf{conf} o arquivo \textbf{httpd.conf}, por fim, abra o mesmo.
+\begin{itemize}
+\item \textbf{LDAP}: Descomente as linhas:
+ \begin{lstlisting}
+   LoadModule ldap_module modules/mod_ldap.so
+   LoadModule authnz_ldap_module modules/mod_authnz_ldap.so
+ \end{lstlisting}
+\item \textbf{DAV SVN}: Ao final do arquivo \textbf{httpd.conf} inclua as seguintes linhas:
+  \begin{lstlisting}
+    LoadModule dav_module modules/mod_dav.so
+    LoadModule dav_svn_module modules/mod_dav_svn.so
+    LoadModule authz_svn_module modules/mod_authz_svn.so
+    RedirectMatch ^(/repos)$ $1/
+    <Location /svn> #para acessar via web digitaremos http://servidor/svn
+      DAV svn #modulo dav svn
+      SVNParentPath C:/svn/ #pasta dos repositorios
+      SVNListParentPath on #listar subpastas
+      SVNAutoversioning On #auto versionamento
+      SVNReposName "Repositorio CPO" #nome do repositorio
+      AuthType Basic #tipo de autenticacao
+      AuthName "Autenticao Subversion CPO" #nome que ira aparecer na autenticacao
+      AuthBasicProvider ldap #utilizar ldap para autenticacao
+      AuthzLDAPAuthoritative on #on para autenticacao em ldap
+      # precisamos de um usuario valido no AD , nesse caso usamos o administrador
+      # lembra que o dominio eh cpo.unicamp.br, logo DC=cpo,DC=unicamp,DC=br
+      AuthLDAPBindDN "CN=administrador,CN=Users,DC=cpo,DC=unicamp,DC=br" 
+      AuthLDAPBindPassword 18RxMr31 #senha do user utilizado acima
+      #endereco de autenticacao
+      AuthLDAPURL "ldap://cpo.unicamp.br/DC=cpo,DC=unicamp,DC=br?sAMAccountName?sub?(objectClass=*)"
+      Require valid-user #requisita que o user seja valido
+    </Location>
+  \end{lstlisting}
+Reinicie o serviço do apache e pronto! Para testar faça o checkout de um projeto e navegue na web para localizar o mesmo.
+\end{itemize}
+\end{document}

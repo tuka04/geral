@@ -1,0 +1,122 @@
+%*************************************************
+\documentclass[a4paper,10pt]{article}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+%codigo
+%\usepackage[latin1]{inputenc}
+\usepackage{amsthm,amsfonts,amsmath,amssymb}
+%img
+\usepackage{graphicx}
+\usepackage{subfig}
+%tabela
+
+%fim
+%fim
+\usepackage{listings} 
+\usepackage{makeidx}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks,
+  linkcolor=blue,
+  filecolor=blue,
+  urlcolor=blue,
+  citecolor=blue 
+}
+
+%titulo
+\title{Configuração do domínio (Active Directory) no linux}
+\author{Leandro Kümmel Tria Mendes}
+\makeindex
+%inicio
+\begin{document}
+\maketitle
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[scale=0.5]{logo.png}
+\end{figure}
+\newpage
+\section{Introdução}
+Vamos configurar o domínio em uma máquina linux rodando a distribuição FedoraCore 15+, ou seja, válido para versões maiores que a 15.
+
+Todos os comandos referem-se a distribuições da RedHat, ou seja, para Debian, Ubuntu pequenas mudanças, tal como, localização dos arquivos de configuração
+ocorrerão, para isso consulte \url{http://www.google.com.br}
+\section{Instalações}
+Para colocar a máquina linux no domínio precisamos instalar alguns pacotes:
+\begin{itemize}
+\item \label{itm:kerberos} \emph{Kerberos}: Kerberos é o nome de um Protocolo de rede, que permite comunicações individuais seguras e identificadas, em uma rede insegura. 
+O Kerberos previne Eavesdropping e Replay attack, e ainda garante a integridade dos dados. \footnote{\url{http://pt.wikipedia.org/wiki/Kerberos}}
+\item \label{itm:openldap} \emph{OpenLDAP}: O OpenLDAP é um software livre de código aberto que implementa o protocolo LDAP. Ele é um serviço de diretório baseado no padrão X.500.
+O OpenLDAP é independente de sistema operativo. Várias distribuições Linux incluem o pacote do OpenLDAP. O software também corre nos sistemas operativos BSD, AIX, HP-UX, Mac OS X, Solaris, Microsoft Windows (2000, XP, 2003, 2008, Vista, win7 e win 8) e z/OS. \footnote{\url{http://pt.wikipedia.org/wiki/OpenLDAP}}
+\item \label{itm:cups} \emph{CUPS}: Um computador rodando o CUPS é um hospedeiro que pode aceitar tarefas de impressão de computadores clientes, processá-los e enviá-los à impressora correta, além disso é possível monitorar impressões, relatar erros de impressões, visualizar relatórios sobre número de páginas impressas, data e horário da mesma.\footnote{\url{http://pt.wikipedia.org/wiki/CUPS}}
+\item \label{itm:samba} \emph{SAMBA}: Samba é  utilizado em sistemas operacionais do tipo Unix, que simula um servidor Windows, permitindo que seja feito gerenciamento e compartilhamento de arquivos em uma rede Microsoft. Na versão 3, o Samba não só provê arquivos e serviços de impressão para vários Clientes Windows, como pode também integrar-se com Windows Server Domain, tanto como Primary Domain Controller (PDC) ou como um Domain Member. Pode fazer parte também de um Active Directory Domain. \footnote{\url{http://pt.wikipedia.org/wiki/Samba_(servidor)}}
+\end{itemize}
+
+\subsection{Procedimento}
+\subsubsection{Kerberos}
+\$  \textbf{sudo yum install krb5-appl-clients.i686 krb5-appl-servers.i686 krb5-pkinit-openssl.i686 krb5-workstation.i686}
+\subsubsection{OpenLDAP}
+\$  \textbf{sudo yum install openldap.i686 openldap-clients.i686  pam\_ldap.i686 smbldap-tools.noarch}
+\subsubsection{CUPS}
+CUPS já vem instalado nativo no FedoraCore 15+
+\subsubsection{SAMBA}
+\$  \textbf{sudo yum install samba-winbind.i686 samba-client.i686 samba-common.i686 samba-winbind-clients.i686 samba-winbind-krb5-locator.i686}
+\section{Configurações}
+Para todas as configurações mostradas a baixo, utilizamos uma máquina com nome \emph{CPO75}, o domínio é \emph{CPO.UNICAMP.BR} de IP \emph{143.106.193.3}.
+\subsection{Kerberos}
+Editar o arquivo localizado em /etc/krb5.conf (adicionar ou alterar as informações existentes)\\
+\$ \textbf{sudo nano /etc/krb5.conf}
+\\
+\lstinputlisting{krb5.conf}
+Testar a configuração, primeiro teste com uma senha errada, e esta deve dar uma mensagem de erro, depois teste com a senha correta, e nada deve ocorrer.
+\$ \textbf{kinit administrador}
+
+\subsection{WinBind e NS}
+Alterar as linhas do arquivo /etc/nsswitch.conf.\\
+\$ \textbf{sudo nano /etc/nsswitch.conf}\\
+\lstinputlisting{nsswitch.conf}
+\subsection{Samba}
+Alterar o arquivo localizado em /etc/samba/smb.cfg\\
+\$ \textbf{sudo nano /etc/samba/smb.cfg}
+\lstinputlisting{smb.conf}
+Teste a configuração\\
+\$ \textbf{testparm}
+\subsection{AuthConfig}
+Para registrar algumas configurações.
+\$ \textbf{sudo authconfig --updateall --enablewinbind --enablewinbindauth --enablewinbindusedefaultdomain}
+\subsection{Hosts e DNS}
+Precismos configurar o hostname, e alias, da máquina e seu DNS (windows têm problemas de comunicação com linux)
+\subsubsection{Hosts}
+Altere o arquivo localizado em /etc/hosts, alterando o nome da máquina e seu alias.
+Troque a linha que contém 127.0.0.1 pela apresentada logo abaixo.
+\$  \textbf{sudo nano /etc/hosts}
+\lstinputlisting{hosts.conf}
+\subsubsection{resolv.conf - DNS}
+Altere o arquivo localizado em /etc/resolv.conf , nele devem conter no minimo as três linhas
+abaixo, na ordem apresentada.
+\lstinputlisting{resolv.conf}
+\section{Iniciar serviços}
+Rode os três comandos a seguir.\\
+\$ \textbf{smbd -D}\\
+\$ \textbf{nmdb -D}\\
+\$ \textbf{winbindd -D}\\
+\section{Trabalhando em rede}
+Se tudo ocorreu bem até agora, faltam poucos passos, porém os mais problemáticos.
+\subsection{Net ADS join}
+Digite o comando abaixo.\\
+\$ \textbf{sudo net ads join -U administrator}\\
+Caso encontre o erro: \emph{Failed to join domain: failed to lookup DC info for domain 'CPO.UNICAMP.BR' over rpc: Logon failure}, prossiga sem medo.
+\subsection{smbclient}
+Digite o comando abaixo, pode se utilizar qualquer usuário, não necessáriamente o administrador.\\
+\$ \textbf{sudo smbclient -U administrador -L 143.106.193.3}\\
+Coloque a senha e o resultado esperado é algo parecido com:
+\lstinputlisting{result.smbclient}
+É possível utilizar o alias arquiteto, para o endereço 143.106.193.3\\
+\$ \textbf{sudo smbclient -U administrador -L arquiteto}\\
+\section{Montar/Mapear a máquina arquiteto}
+Primeiro precisamos criar um diretório, que chamaremos de area\_transf e monta-lo em /mnt/\\
+\$ \textbf{sudo mkdir -p /mnt/area\_transf}\\
+\$ \textbf{sudo mount -t cifs -o rw,noperm,user=<USUARIO>,password=<SENHA> //arquiteto/area\_transf /mnt/area\_transf}\\
+Por último, para testar.\\
+\$ \textbf{sudo ls -l /mnt/area\_transf}\\
+\end{document} 
